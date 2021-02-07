@@ -1,0 +1,9 @@
+apply from: "../../common_component_build.gradle"
+
+android {
+    resourcePrefix "im_"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

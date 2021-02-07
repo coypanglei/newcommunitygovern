@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_dp_300"
+        android:background="@color/public_white" />
+
+    <include layout="@layout/public_view_line_full" />
+
+    <Button
+        android:id="@+id/mBtn_Cancel"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/public_white"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="#0073FF"
+        android:textSize="18sp" />
+
+</LinearLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="common_dp_15">15dp</dimen>
+    <dimen name="common_sp_16">16sp</dimen>
+</resources>

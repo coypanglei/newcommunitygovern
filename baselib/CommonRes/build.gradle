@@ -1,0 +1,106 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+apply from: "../../channel.gradle"
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+
+        testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+
+        //65536
+        multiDexEnabled true
+    }
+    resourcePrefix "public_" //给 Module 内的资源名增加前缀, 避免资源名冲突
+}
+
+dependencies {
+    //view
+    annotationProcessor(rootProject.ext.dependencies["butterknife-compiler"]) {
+        exclude module: 'support-annotations'
+    }
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    //因为 CommonRes 依赖了 CommonSDK, 所以如果业务模块需要公共 UI 组件就依赖 CommonRes, 如果不需要就只依赖 CommonSDK
+    api rootProject.ext.dependencies["autosize"]
+    api(rootProject.ext.dependencies["cardview-v7"]) {
+        exclude module: 'support-annotations'
+    }
+    api rootProject.ext.dependencies["paginate"]
+    api rootProject.ext.dependencies["lottie"]
+
+    //    api 'me.jessyan:arms:2.5.2'
+    api project(":baselib:arms")
+    api project(":baselib:baidumap")
+    api project(":baselib:CommonService")
+    api project(":baselib:floating")
+
+    compileOnly('me.jessyan:arms-imageloader-glide:2.5.2') {
+        exclude module: 'glide'
+    }
+
+    //tools
+    api rootProject.ext.dependencies["androideventbus"]
+    api(rootProject.ext.dependencies["arouter"]) {
+        exclude module: 'support-v4'
+        exclude module: 'support-annotations'
+    }
+    api rootProject.ext.dependencies["retrofit-url-manager"]
+    api rootProject.ext.dependencies["baseadapter"]
+    api rootProject.ext.dependencies["design"]
+
+    compileOnly rootProject.ext.dependencies["appcompat"]
+    compileOnly rootProject.ext.dependencies["multidex"]
+    //recycler view 分割线
+    api 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+    //工具集合  https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
+    api 'com.blankj:utilcodex:1.29.0'
+    //html 解析框架
+    api 'org.jsoup:jsoup:1.12.1'
+
+    //tableLayout
+    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
+    api rootProject.ext.dependencies["progressmanager"]
+
+    //谷歌流式布局库
+    api 'com.google.android:flexbox:1.0.0'
+    api 'com.github.razerdp:BasePopup:2.2.10'
+    api 'androidx.appcompat:appcompat:1.2.0'
+    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+    //饺子播放器
+    api 'cn.jzvd:jiaozivideoplayer:7.2.4'
+    api 'com.github.chrisbanes:PhotoView:2.3.0'
+
+    //权限
+    api 'com.yanzhenjie:permission:2.0.3'
+
+    //相册 相机
+    api 'com.github.LuckSiege.PictureSelector:picture_library:v2.6.0'
+
+    api("com.google.guava:guava:29.0-android")
+    //侧滑返回框架
+    api 'com.billy.android:smart-swipe:1.1.2'
+
+    //android x环境下兼容NestedScrolling
+    api 'com.billy.android:smart-swipe-x:1.1.0'
+
+    // 动画专用
+    api rootProject.ext.dependencies["lottie"]
+    //阴影专用
+    api rootProject.ext.dependencies["shadowLayout"]
+
+    api rootProject.ext.dependencies["viewpager2"]
+
+    api rootProject.ext.dependencies["banner"]
+
+    api rootProject.ext.dependencies["basepopup"]
+
+    api rootProject.ext.dependencies["pickerview"]
+
+
+}

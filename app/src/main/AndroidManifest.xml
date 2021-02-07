@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.wq.newcommunitygovern">
+
+    <application
+        android:name="com.jess.arms.base.BaseApplication"
+        android:hardwareAccelerated="true"
+        android:allowBackup="true"
+        android:icon="${appIcon}"
+        android:label="${appName}"
+        android:networkSecurityConfig="@xml/public_network_security_config"
+        android:roundIcon="@mipmap/app_ic_launcher_round"
+        android:supportsRtl="true"
+        tools:targetApi="n"
+        android:theme="@style/app_AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".mvp.ui.activity.common.CommonActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            />
+        <activity
+            android:name=".mvp.ui.activity.main.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".mvp.ui.activity.signin.SigninActivity" />
+        <activity
+            android:name=".mvp.ui.activity.main.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="DuplicateActivity" />
+        <activity
+            android:name=".mvp.ui.activity.test.TestMulitAcitvity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".mvp.ui.activity.main.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".mvp.ui.activity.test.TestMulitAcitvity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="DuplicateActivity" />
+        <activity
+            android:name=".mvp.ui.activity.main.SplashActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="375" /> <!-- <meta-data -->
+        <!-- android:name="design_height_in_dp" -->
+        <!-- android:value="640" /> -->
+        <!-- 全局配置 -->
+        <meta-data
+            android:name="com.weique.commonres.core.GlobalConfiguration"
+            android:value="ConfigModule" /> <!-- 全局配置 -->
+        <meta-data
+            android:name="com.wq.newcommunitygovern.app.GlobalConfiguration"
+            android:value="ConfigModule" /> <!-- 配置百度map key -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="${baidumapkey}" /> <!-- App拥有自己单独的定位service -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <provider
+            android:name="com.weique.commonres.variety.UpdateFileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/public_new_app_file_paths" />
+        </provider>
+    </application>
+
+</manifest>

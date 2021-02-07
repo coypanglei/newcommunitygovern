@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/public_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/public_dp_70"
+    android:background="@color/public_white"
+    android:elevation="5dp"
+    app:contentInsetStart="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/public_dp_20"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/public_toolbar_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/public_dp_20"
+                android:layout_marginLeft="@dimen/public_dp_20"
+                android:layout_marginEnd="@dimen/public_dp_20"
+                android:layout_marginRight="@dimen/public_dp_20"
+                android:src="@drawable/public_back_icon" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/public_toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/public_black"
+            android:textSize="@dimen/public_font_16sp"
+            tools:text="@string/app_name" />
+
+        <RelativeLayout
+            android:id="@+id/right_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:paddingStart="@dimen/public_dp_20"
+            android:paddingEnd="@dimen/public_dp_20">
+
+            <TextView
+                android:id="@+id/right_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/public_colorprimary"
+                android:textSize="@dimen/public_sp_16"
+                tools:text="sss" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.Toolbar>

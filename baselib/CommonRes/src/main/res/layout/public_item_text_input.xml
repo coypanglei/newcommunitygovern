@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="@dimen/public_dp_17"
+        android:layout_height="@dimen/public_dp_17"
+        android:layout_marginTop="@dimen/public_dp_17"
+        android:layout_marginEnd="@dimen/public_dp_15"
+        android:layout_marginRight="15dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:id="@+id/textInputLayout"
+        android:layout_weight="1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:maxLength="25"
+            android:singleLine="true"
+            android:text=""
+            android:textSize="@dimen/sp_14" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

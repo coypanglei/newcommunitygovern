@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lihang.ShadowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/public_white"
+    android:visibility="visible"
+    app:hl_layoutBackground="@color/public_white"
+    app:hl_layoutBackground_true="@color/public_gray_d8"
+    app:hl_shapeMode="ripple">
+
+        <RelativeLayout
+            android:id="@+id/mShadowLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/public_white"
+            android:visibility="visible">
+
+            <TextView
+                android:duplicateParentState="true"
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/public_dp_5"
+                android:layout_marginTop="@dimen/public_dp_17"
+                android:layout_marginBottom="@dimen/public_dp_17"
+                android:layout_toRightOf="@id/iv_left"
+                android:drawablePadding="@dimen/public_padding_20dp"
+                android:paddingRight="@dimen/public_padding_20dp"
+                android:textColor="@color/public_black_333"
+                android:textSize="@dimen/public_dp_17"
+                tools:text="@string/arms_app_name" />
+
+            <ImageView
+                android:id="@+id/iv_left"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/public_dp_15"
+                android:scaleType="center"
+                tools:src="@drawable/public_my_icon_sign_in" />
+
+            <ImageView
+                android:id="@+id/iv_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/permission_dp_10"
+                android:src="@drawable/public_arrow_icon" />
+
+            <TextView
+                android:id="@+id/tv_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp_40"
+                android:textColor="@color/public_black_333"
+                android:textSize="@dimen/public_dp_17" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@id/tv_title"
+                android:layout_alignLeft="@id/tv_title"
+                android:background="@color/public_cut_off_line"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+</com.lihang.ShadowLayout>

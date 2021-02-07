@@ -1,0 +1,9 @@
+apply from: "../../common_component_build.gradle"
+
+android {
+    resourcePrefix "dynamic_"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

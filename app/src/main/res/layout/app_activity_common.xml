@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_common"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <include layout="@layout/public_include_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_above="@id/ll_bottom"
+        android:layout_below="@id/public_toolbar" />
+
+    <com.lihang.ShadowLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_dp_55"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        app:hl_layoutBackground="@color/public_colorprimary"
+        app:hl_layoutBackground_true="@color/public_color_53a8f4"
+        app:hl_cornerRadius="10dp"
+        app:hl_shadowColor="#2a000000"
+        app:hl_text="点我，press样式"
+        app:hl_text_true="我改变了文案了"
+        app:hl_shadowLimit="5dp"
+        app:hl_bindTextView="@+id/sumbit"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/sumbit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/public_dp_44"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/public_dp_7"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/public_submit"
+            android:textColor="@color/public_white"
+            android:textSize="@dimen/sp_14" />
+    </com.lihang.ShadowLayout>
+
+</RelativeLayout>

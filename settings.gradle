@@ -1,0 +1,5 @@
+include ':app', ':baselib:arms', ':baselib:CommonRes', ':baselib:CommonService',
+        ':subassembly:dynamic', ':subassembly:im', ':baselib:baidumap', ':baselib:floating',
+        ':functionlib:DialogFragment', ':functionlib:dialogplus', ':functionlib:BasePopup'
+
+rootProject.name = 'NewCommunityGovern'

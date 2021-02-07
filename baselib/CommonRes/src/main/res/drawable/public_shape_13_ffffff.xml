@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 内部颜色 -->
+    <solid android:color="@color/public_white" />
+    <!-- 边缘线条颜色 -->
+    <corners
+        android:bottomLeftRadius="@dimen/public_dp_13"
+        android:bottomRightRadius="@dimen/public_dp_13"
+        android:topLeftRadius="@dimen/public_dp_13"
+        android:topRightRadius="@dimen/public_dp_13" />
+
+</shape>

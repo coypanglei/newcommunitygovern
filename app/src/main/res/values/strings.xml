@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">社会治理网格通</string>
+    <string name="app_work">工作</string>
+    <string name="app_my">我的</string>
+
+
+
+
+    <!--综治百度地图key-->
+    <string name="app_zz_baidu_map_key">aAGdo6tKDCCj0fdXkRmLXXlMjGHoDzVq</string>
+    <!--基治百度地图key-->
+    <string name="app_jz_baidu_map_key">7S4sYop3jL20GnBufLSHBKCmlmGNE2jd</string>
+</resources>

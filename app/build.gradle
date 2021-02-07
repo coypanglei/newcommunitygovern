@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+apply from: "../channel.gradle"
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.weique.overhaul.v3"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
+        ndk {// 设置支持的SO库架构（cpu类型）/*'x86',*/  'x86_64', 'armeabi',
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64', 'armeabi', 'x86'
+        }
+        resourcePrefix "app_" //给 Module 内的资源名增加前缀, 避免资源名冲突
+        //65536
+        multiDexEnabled true
+    }
+    //配置自定义打包名称
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def fileName
+            def date = new Date()
+            def formattedDate = date.format("yyyy_MM_dd_HH_mm", TimeZone.getTimeZone("GMT+8:00"))
+            fileName = "渠道_${variant.flavorName}_版本_${variant.mergedFlavor.versionName}_时间_${formattedDate}_环境_${variant.buildType.name}.apk"
+            outputFileName = fileName
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            resources.srcDirs = ['src/main/res', 'src/main/res/']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    if (!isBuildModule.toBoolean()) {
+        //在宿主 App 中使用 implementation 依赖业务组件, 业务组件的代码就会完全暴露给宿主 App, 不利于代码的隔离
+        //使用 runtimeOnly 依赖业务组件, 可实现业务组件的代码在编译时对宿主 App 不可见, 仅在运行时对宿主 App 可见
+    }
+    implementation project(":baselib:CommonRes")
+    implementation project(":subassembly:dynamic")
+    //tools
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    //view
+    annotationProcessor(rootProject.ext.dependencies["butterknife-compiler"]) {
+        exclude module: 'support-annotations'
+    }
+    //test
+    testImplementation rootProject.ext.dependencies["junit"]
+    debugImplementation rootProject.ext.dependencies["canary-debug"]
+    releaseImplementation rootProject.ext.dependencies["canary-release"]
+    testImplementation rootProject.ext.dependencies["canary-release"]
+}

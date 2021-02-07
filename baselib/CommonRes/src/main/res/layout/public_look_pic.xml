@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/public_black"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/public_black"
+        android:gravity="top|center"
+        android:text=""
+        android:textColor="@color/public_white"
+        android:textSize="@dimen/public_dp_16" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/public_dp_20"
+        android:textColor="@color/public_white"
+        android:textSize="@dimen/public_dp_15" />
+
+    <com.youth.banner.Banner xmlns:banner="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/public_black"
+        android:layout_marginBottom="@dimen/public_dp_20"
+        banner:banner_auto_loop="false"
+        banner:banner_radius="5dp" />
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent48">#48000000</color><!--透明色 -->
+    <color name="blue_4D8FF7">#4D8FF7</color>
+    <color name="black_333">#ff333333</color>
+    <color name="black">#000000</color>
+    <color name="lucency">#00000000</color>
+    <color name="eeeeee">#ffeeeeee</color>
+    <color name="white">#ffffff</color>
+</resources>

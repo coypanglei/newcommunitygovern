@@ -1,0 +1,74 @@
+android {
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //自动签名
+    signingConfigs {
+        config {
+            keyAlias 'weique'
+            keyPassword 'weique'
+            storeFile file('../weique.jks')
+            storePassword 'weique'
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            buildConfigField "boolean", "USE_CANARY", "true"
+            buildConfigField "boolean", "IS_BUILD_MODULE", "${isBuildModule}"
+            minifyEnabled false
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            buildConfigField "boolean", "USE_CANARY", "false"
+            buildConfigField "boolean", "IS_BUILD_MODULE", "${isBuildModule}"
+            minifyEnabled false
+            if (isBuildModule.toBoolean()) {
+                shrinkResources false
+                zipAlignEnabled false
+            }
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+        disable "ResourceType"
+        abortOnError false
+    }
+
+    //独立打包时使用
+    if (isBuildModule.toBoolean()) {
+        ndk {// 设置支持的SO库架构（cpu类型）/*'x86',*/  'x86_64', 'armeabi',
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+
+    }
+
+    //分渠道打包
+    flavorDimensions "default"
+    productFlavors {
+        normal_阿里测试 {
+            dimension "default"
+            versionCode 1
+            versionName "1"
+//            buildConfigField "String", "SERVER_URL", '"http://192.168.20.41:8880"'
+            buildConfigField "String", "SERVER_URL", '"http://47.102.147.120:9015"'
+//            buildConfigField "String", "SERVER_URL", '"http://47.102.147.120:2020"'
+
+            manifestPlaceholders = [
+                    channelName: "ali_test ",
+                    baidumapkey: "@string/app_zz_baidu_map_key",
+                    appName    : "@string/app_name",
+                    appIcon    : "@mipmap/app_ic_launcher",
+            ]
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.weique.dynamic">
+
+    <application>
+        <activity
+            android:name=".mvp.ui.activity.CommonMultipleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.CommonRefreshActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.weique.dynamic.app.GlobalConfiguration"
+            android:value="ConfigModule" />
+    </application>
+
+</manifest>

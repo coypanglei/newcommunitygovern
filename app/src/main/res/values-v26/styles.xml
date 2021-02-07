@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="app_AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your party_theme here. -->
+        <item name="android:windowBackground">@color/public_theme_background</item>
+        <item name="colorPrimary">@color/public_colorprimary</item>
+        <item name="colorPrimaryDark">@color/public_colorprimarydark</item>
+        <item name="colorAccent">@color/public_colorprimarydark</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowAnimationStyle">@style/public_Activity_Animation</item>
+    </style>
+</resources>

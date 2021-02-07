@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <com.lihang.ShadowLayout
+        android:id="@+id/headShadowLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        app:hl_cornerRadius="5dp"
+        app:hl_layoutBackground="@color/public_colorprimary">
+
+        <TextView
+            android:id="@+id/head_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/public_white"
+            android:textSize="@dimen/public_dp_16"
+            android:textStyle="bold"
+            tools:text="王伟" />
+
+        <ImageView
+            android:id="@+id/head_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+    </com.lihang.ShadowLayout>
+
+
+</RelativeLayout>
